@@ -1,0 +1,7 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+}
+.sidebar-accordion {
+  width: 100%;
+}
