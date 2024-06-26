@@ -10,7 +10,6 @@ const projectSlice = createSlice({
   initialState,
   reducers: {
     setProject(state, action) {
-      console.log(action.payload);
       state.subProject = action.payload.subProject;
       state.projectId = action.payload.projectId;
     },

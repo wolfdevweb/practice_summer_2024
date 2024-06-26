@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../store/reducers/authSlice';
 
 const AppHeader = (props) => {
-  const { token, username } = useSelector((state) => state.auth);
+  const { username } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const { pathname } = useLocation();
 
@@ -14,11 +14,8 @@ const AppHeader = (props) => {
     <div className="header">
       {username && <p className="user-name">{username.slice(0, 2)}</p>}
       <nav className="nav">
-        {token ? (
-          <button onClick={() => dispatch(logout())}>logout</button>
-        ) : (
-          <Link to="/login">Log in</Link>
-        )}
+        <button onClick={() => dispatch(logout())}>logout</button>
+
         {navArray.map((elem, i) => (
           <Link
             className={

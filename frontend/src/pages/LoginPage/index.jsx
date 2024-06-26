@@ -1,11 +1,11 @@
-import TextField from "@mui/material/TextField";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { login } from "../../store/reducers/authSlice";
-import "./index.css";
-import { Link, useNavigate } from "react-router-dom";
+import TextField from '@mui/material/TextField';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { login } from '../../store/reducers/authSlice';
+import './index.css';
+import { Link, useNavigate } from 'react-router-dom';
 const LoginPage = (props) => {
-  const [user, setUser] = useState({ username: "", password: "" });
+  const [user, setUser] = useState({ username: '', password: '' });
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleChange = (event) => {
@@ -18,23 +18,23 @@ const LoginPage = (props) => {
   //функция для отправки данных пользователя на сервер
   const sendData = (user) => {
     // Используем fetch для отправки POST-запроса на сервер
-    fetch("http://localhost:3005/api/login", {
-      method: "POST",
+    fetch('http://localhost:3005/api/login', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
+      //преобразуем объект user в строку в формате JSON
       body: JSON.stringify(user),
     })
       .then((response) => response.json()) // ожидаем ответ от сервера
       .then((data) => {
         // console.log("Ответ сервера: ", token);
         dispatch(login(data));
-        localStorage.setItem("token", data.token);
-        localStorage.setItem("user", data.username);
+
         navigate('/');
       })
       .catch((error) => {
-        console.error("Ошибка при отправке данных: ", error);
+        console.error('Ошибка при отправке данных: ', error);
       });
   };
   return (
@@ -59,7 +59,9 @@ const LoginPage = (props) => {
         />
         <button type="submit">Submit</button>
       </form>
-      <Link to={'/signup'} className="signupbutton">Sign up</Link>
+      <Link to={'/signup'} className="signupbutton">
+        Sign up
+      </Link>
     </div>
   );
 };

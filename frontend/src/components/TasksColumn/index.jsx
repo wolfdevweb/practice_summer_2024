@@ -17,7 +17,6 @@ const TaskColumn = ({ title, tasks, status, projectId, subProjectId }) => {
         subProjectId,
         task: { title, description, status },
       });
-      console.log(response.data);
       dispatch(addTaskToSubProjet(response.data.task));
       // fetchProjects();
     } catch (error) {

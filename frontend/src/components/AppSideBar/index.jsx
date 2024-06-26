@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import SimpleAccordion from '../AppAccordion';
-import { marketingAccordionData, productAccordionData } from '../../const';
 import './AppSideBar.css';
 import ModalNewProject from '../ModalNewProject';
 import axios from 'axios';
@@ -19,7 +18,6 @@ const AppSideBar = () => {
   const fetchProjects = async () => {
     try {
       const response = await axios.get('http://localhost:3005/api/projects');
-      console.log(response.data);
       setProjects(response.data);
     } catch (error) {
       console.error('Error creating project:', error);
@@ -28,7 +26,7 @@ const AppSideBar = () => {
 
   const handleSubmit = async ({ title, category }) => {
     try {
-      const response = await axios.post('http://localhost:3005/api/projects', {
+      await axios.post('http://localhost:3005/api/projects', {
         title,
         category,
         username,

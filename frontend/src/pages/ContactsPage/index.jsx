@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-const ContactsPage = (props) => {
+const ContactsPage = () => {
   return (
     <div>
       <h1>ContactsPage</h1>

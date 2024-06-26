@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-const AppsPage = (props) => {
+const AppsPage = () => {
   return (
     <div>
       <h1>AppsPage</h1>
